@@ -5,9 +5,6 @@ using System;
 using System.Linq;
 using UnityEngine.Windows.Speech;
 
-
-
-
 public class HeroController : MonoBehaviour
 {
     //Movement variables
@@ -16,6 +13,8 @@ public class HeroController : MonoBehaviour
     private Rigidbody myRigid;
     private Vector3 inputVector;
     public bool isWalking = false;
+    public bool isRunning;
+    public bool isBack;
 
     //Voice Recognition Variables
     private Dictionary<string, Action> keywordActions = new Dictionary<string, Action>();
@@ -28,6 +27,7 @@ public class HeroController : MonoBehaviour
 
         keywordActions.Add("tira", Tira);
         keywordActions.Add("tiratira", Tiratira);
+        keywordActions.Add("atras", Atras);
         keywordActions.Add("para", Para);
         keywordActions.Add("dale", Dale);
         keywordActions.Add("derecha", Derecha);
@@ -44,6 +44,35 @@ public class HeroController : MonoBehaviour
         if (isWalking)
         {
             inputVector = this.transform.rotation* Vector3.forward * speed;
+
+            if (isRunning)
+            {
+                inputVector = this.transform.rotation * Vector3.forward * speed * 2;
+            }
+            if (isBack)
+            {
+                inputVector = this.transform.rotation * -Vector3.forward * speed;
+            }
+        }
+        else if (isRunning)
+        {
+            inputVector = this.transform.rotation * Vector3.forward * speed*2;
+            if (isBack)
+            {
+                inputVector = this.transform.rotation * -Vector3.forward * speed;
+            }
+        }
+        else if (isBack)
+        {
+            inputVector = this.transform.rotation * -Vector3.forward * speed;
+            if (isWalking)
+            {
+                inputVector = this.transform.rotation * Vector3.forward * speed;
+            }
+            if (isRunning)
+            {
+                inputVector = this.transform.rotation * Vector3.forward * speed * 2;
+            }
         }
         else
         {
@@ -66,18 +95,26 @@ public class HeroController : MonoBehaviour
     {
         print("Tira");
         isWalking = true;
+        isRunning = false;
+        isBack = false;
     }
 
     private void Tiratira()
     {
-        print("Tira mas rápido");
+        isRunning = true;
+        isBack = false;
+    }
 
+    private void Atras()
+    {
+        isBack = true;
     }
 
     private void Para()
     {
-        print("Para");
         isWalking = false;
+        isRunning = false;
+        isBack = false;
     }
 
     private void Dale()
@@ -107,6 +144,5 @@ public class HeroController : MonoBehaviour
             transform.rotation = Quaternion.Lerp(fromAngle, toAngle, t);
             yield return null;
         }
-
     }
 }
