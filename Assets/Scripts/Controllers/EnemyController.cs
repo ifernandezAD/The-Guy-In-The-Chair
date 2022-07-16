@@ -29,7 +29,7 @@ public class EnemyController : MonoBehaviour
             if (distance <= agent.stoppingDistance)
             {
                 //Attack the target
-                //Face the target
+                FaceTarget();
             }
         }
     }
