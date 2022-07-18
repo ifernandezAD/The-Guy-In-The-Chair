@@ -318,7 +318,7 @@ MonoBehaviour:
   isWalking: 0
   isRunning: 0
   isBack: 0
-  lookRadius: 8
+  lookRadius: 4
 --- !u!114 &303786207
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -333,7 +333,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 100
   damage:
-    baseValue: 0
+    baseValue: 5
   armor:
     baseValue: 0
 --- !u!114 &303786208
@@ -768,7 +768,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1477899525}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ff0af808bfbbceb49bd0eeed9a7b1bde, type: 3}
   m_Name: 

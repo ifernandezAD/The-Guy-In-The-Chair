@@ -22,12 +22,13 @@ public class HeroController : MonoBehaviour
 
     //EnemyDetection and Attack Variables
     public int lookRadius;
+    CharacterCombat combat;
 
 
     void Start()
     {
         myRigid = transform.GetComponent<Rigidbody>();
-        
+        combat = GetComponent<CharacterCombat>();
 
         keywordActions.Add("tira", Tira);
         keywordActions.Add("tiratira", Tiratira);
@@ -126,6 +127,7 @@ public class HeroController : MonoBehaviour
     private void Dale()
     {
         print("Dalee");
+        //El heroe aumenta su cadencia y poder de ataque
     }
 
     private void Derecha()
@@ -155,13 +157,20 @@ public class HeroController : MonoBehaviour
     
     void CheckForEnemies()
     {
-        Collider[] colliders = Physics.OverlapSphere(transform.position, 8f);
+        Collider[] colliders = Physics.OverlapSphere(transform.position, lookRadius);
         foreach (Collider c in colliders)
         {
             if (c.tag == "Enemy")
             {
+                isWalking = false;
+                isRunning = false;
+                isBack = false;
                 transform.LookAt(c.transform.position);
-                // Y le pegas
+                CharacterStats targetStats = c.GetComponent<CharacterStats>();
+                if (targetStats != null)
+                {
+                    combat.Attack(targetStats);
+                }
                 print("Hay un tio");
             }
         }
