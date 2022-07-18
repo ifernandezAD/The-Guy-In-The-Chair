@@ -200,6 +200,7 @@ GameObject:
   - component: {fileID: 303786201}
   - component: {fileID: 303786206}
   - component: {fileID: 303786207}
+  - component: {fileID: 303786208}
   m_Layer: 0
   m_Name: Hero
   m_TagString: Untagged
@@ -294,7 +295,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 303786200}
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -0.32, y: 1.15, z: -0}
+  m_LocalPosition: {x: -6.6, y: 1.15, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1167314807}
@@ -317,6 +318,7 @@ MonoBehaviour:
   isWalking: 0
   isRunning: 0
   isBack: 0
+  lookRadius: 8
 --- !u!114 &303786207
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -334,6 +336,20 @@ MonoBehaviour:
     baseValue: 0
   armor:
     baseValue: 0
+--- !u!114 &303786208
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 303786200}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72d7d8510b77ac24eaa8de0241ac3243, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackSpeed: 1
+  attackCooldown: 0
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -624,7 +640,7 @@ GameObject:
   - component: {fileID: 1477899534}
   m_Layer: 0
   m_Name: Enemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -752,7 +768,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1477899525}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ff0af808bfbbceb49bd0eeed9a7b1bde, type: 3}
   m_Name: 

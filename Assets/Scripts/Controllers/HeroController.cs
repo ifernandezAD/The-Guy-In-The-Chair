@@ -1,8 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
-using System;
 using System.Linq;
+using UnityEngine;
 using UnityEngine.Windows.Speech;
 
 public class HeroController : MonoBehaviour
@@ -20,10 +20,14 @@ public class HeroController : MonoBehaviour
     private Dictionary<string, Action> keywordActions = new Dictionary<string, Action>();
     private KeywordRecognizer keywordRecognizer;
 
+    //EnemyDetection and Attack Variables
+    public int lookRadius;
+
 
     void Start()
     {
         myRigid = transform.GetComponent<Rigidbody>();
+        
 
         keywordActions.Add("tira", Tira);
         keywordActions.Add("tiratira", Tiratira);
@@ -41,9 +45,11 @@ public class HeroController : MonoBehaviour
 
     void Update()
     {
+        CheckForEnemies();
+
         if (isWalking)
         {
-            inputVector = this.transform.rotation* Vector3.forward * speed;
+            inputVector = this.transform.rotation * Vector3.forward * speed;
 
             if (isRunning)
             {
@@ -56,7 +62,7 @@ public class HeroController : MonoBehaviour
         }
         else if (isRunning)
         {
-            inputVector = this.transform.rotation * Vector3.forward * speed*2;
+            inputVector = this.transform.rotation * Vector3.forward * speed * 2;
             if (isBack)
             {
                 inputVector = this.transform.rotation * -Vector3.forward * speed;
@@ -145,4 +151,27 @@ public class HeroController : MonoBehaviour
             yield return null;
         }
     }
+
+    
+    void CheckForEnemies()
+    {
+        Collider[] colliders = Physics.OverlapSphere(transform.position, 8f);
+        foreach (Collider c in colliders)
+        {
+            if (c.tag == "Enemy")
+            {
+                transform.LookAt(c.transform.position);
+                // Y le pegas
+                print("Hay un tio");
+            }
+        }
+
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.blue;
+        Gizmos.DrawWireSphere(transform.position, lookRadius);
+    }
+
 }
