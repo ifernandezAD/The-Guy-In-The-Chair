@@ -1,28 +1,23 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CharacterStats : MonoBehaviour
 {
-    public int maxHealth = 100;
-    public int currentHealth { get; private set; }
-
+    //Stats
+    public float maxHealth = 100;
+    public float currentHealth { get; private set; }
     public Stat damage;
     public Stat armor;
 
+    [SerializeField] private Image healthBarSprite;
+    
 
     private void Awake()
 
     {
         currentHealth = maxHealth;
-    }
-
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.T))
-        {
-            TakeDamage(10);
-        }
     }
 
     public void TakeDamage(int damage)
@@ -32,6 +27,8 @@ public class CharacterStats : MonoBehaviour
 
         currentHealth -= damage;
         print(transform.name + " takes " + damage + " damage.");
+
+        healthBarSprite.fillAmount = currentHealth / maxHealth;
 
         if (currentHealth <= 0)
         {

@@ -166,6 +166,7 @@ public class HeroController : MonoBehaviour
                 isRunning = false;
                 isBack = false;
                 transform.LookAt(c.transform.position);
+
                 CharacterStats targetStats = c.GetComponent<CharacterStats>();
                 if (targetStats != null)
                 {

@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
+
 [RequireComponent(typeof(CharacterStats))]
 public class CharacterCombat : MonoBehaviour
 {
-
     CharacterStats myStats;
 
     public float attackSpeed = 1f;
