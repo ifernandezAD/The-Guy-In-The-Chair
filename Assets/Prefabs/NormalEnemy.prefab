@@ -500,7 +500,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 25
   damage:
-    baseValue: 1
+    baseValue: 2
   armor:
     baseValue: 0
   healthBarSprite: {fileID: 6166843220023695207}
