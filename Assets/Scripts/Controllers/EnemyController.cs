@@ -24,6 +24,7 @@ public class EnemyController : MonoBehaviour
     
     void Update()
     {
+      
         float distance = Vector3.Distance(target.position, transform.position);
 
         if (distance <= lookRadius)
@@ -43,7 +44,7 @@ public class EnemyController : MonoBehaviour
         }
     }
 
-    void FaceTarget()
+void FaceTarget()
     {
         Vector3 direction = (target.position - transform.position).normalized;
         Quaternion lookRotation = Quaternion.LookRotation(new Vector3(direction.x, 0, direction.z));

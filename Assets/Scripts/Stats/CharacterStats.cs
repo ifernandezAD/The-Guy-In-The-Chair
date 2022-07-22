@@ -26,7 +26,7 @@ public class CharacterStats : MonoBehaviour
         damage = Mathf.Clamp(damage, 0, int.MaxValue); //Prevents negative damage that heal the character
 
         currentHealth -= damage;
-        print(transform.name + " takes " + damage + " damage.");
+        
 
         healthBarSprite.fillAmount = currentHealth / maxHealth;
 
@@ -38,7 +38,6 @@ public class CharacterStats : MonoBehaviour
 
     public virtual void Die()
     {
-        print("You are dead");
-        //This method is meant to be overwritten
+        print("You are dead");       
     }
 }

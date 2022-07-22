@@ -172,10 +172,8 @@ public class HeroController : MonoBehaviour
                 {
                     combat.Attack(targetStats);
                 }
-                print("Hay un tio");
             }
         }
-
     }
 
     private void OnDrawGizmos()
