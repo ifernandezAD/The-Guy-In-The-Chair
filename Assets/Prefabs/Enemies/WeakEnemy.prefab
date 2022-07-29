@@ -350,7 +350,7 @@ GameObject:
   - component: {fileID: 1712715991301014386}
   - component: {fileID: 2484785403708357329}
   m_Layer: 0
-  m_Name: SpeedEnemy
+  m_Name: WeakEnemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -399,7 +399,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 2146a323ba1cc8843be534e148d3c909, type: 2}
+  - {fileID: 2100000, guid: c5cd2cceb9775b7448265c476219e9e1, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

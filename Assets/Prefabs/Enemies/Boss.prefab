@@ -502,7 +502,7 @@ MonoBehaviour:
   damage:
     baseValue: 10
   armor:
-    baseValue: 3
+    baseValue: 0
   healthBarSprite: {fileID: 2496448560429443411}
 --- !u!114 &2496448561487348732
 MonoBehaviour:
