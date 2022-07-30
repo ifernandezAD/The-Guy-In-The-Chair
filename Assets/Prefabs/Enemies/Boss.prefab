@@ -516,5 +516,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72d7d8510b77ac24eaa8de0241ac3243, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackSpeed: 0.1
+  attackSpeed: 0.2
   attackCooldown: 0

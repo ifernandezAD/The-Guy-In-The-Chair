@@ -172,7 +172,7 @@ public class HeroController : MonoBehaviour
                 {
                     combat.Attack(targetStats);
                 }
-            }
+            }          
         }
     }
 

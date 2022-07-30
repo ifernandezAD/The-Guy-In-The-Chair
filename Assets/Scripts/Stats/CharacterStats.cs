@@ -12,7 +12,7 @@ public class CharacterStats : MonoBehaviour
     public Stat armor;
 
     [SerializeField] private Image healthBarSprite;
-    
+
 
     private void Awake()
 
@@ -20,6 +20,7 @@ public class CharacterStats : MonoBehaviour
         currentHealth = maxHealth;
     }
 
+    
     public void TakeDamage(int damage)
     {
         damage -= armor.GetValue();

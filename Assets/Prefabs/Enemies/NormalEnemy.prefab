@@ -485,7 +485,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff0af808bfbbceb49bd0eeed9a7b1bde, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lookRadius: 10
+  lookRadius: 5
 --- !u!114 &6929480762840743103
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -498,9 +498,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c33a90a29d0c04947bc223e58ae7b17a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 25
+  maxHealth: 30
   damage:
-    baseValue: 2
+    baseValue: 4
   armor:
     baseValue: 0
   healthBarSprite: {fileID: 6166843220023695207}
