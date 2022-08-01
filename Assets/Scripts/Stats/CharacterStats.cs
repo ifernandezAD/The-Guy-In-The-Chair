@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class CharacterStats : MonoBehaviour
 {
     //Stats
-    public float maxHealth = 100;
+    public float maxHealth;
     public float currentHealth { get; private set; }
     public Stat damage;
     public Stat armor;

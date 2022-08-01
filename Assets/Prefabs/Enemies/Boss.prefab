@@ -498,12 +498,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c33a90a29d0c04947bc223e58ae7b17a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 200
+  maxHealth: 300
   damage:
     baseValue: 10
   armor:
     baseValue: 0
   healthBarSprite: {fileID: 2496448560429443411}
+  heroController: {fileID: 0}
 --- !u!114 &2496448561487348732
 MonoBehaviour:
   m_ObjectHideFlags: 0
