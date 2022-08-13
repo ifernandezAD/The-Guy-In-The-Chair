@@ -9,4 +9,12 @@ public class HeroCharacterStats : CharacterStats
         this.gameObject.SetActive(false);
     }
 
+    private void OnCollisionEnter(Collision other)
+    {
+        if (other.gameObject.tag == "Pederastian")
+        {
+            currentHealth += 40;
+            Destroy(other.gameObject);
+        }
+    }
 }

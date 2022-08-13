@@ -7,7 +7,7 @@ public class CharacterStats : MonoBehaviour
 {
     //Stats
     public float maxHealth;
-    public float currentHealth { get; private set; }
+    public float currentHealth;
     public Stat damage;
     public Stat armor;
 
@@ -41,4 +41,5 @@ public class CharacterStats : MonoBehaviour
     {
         print("You are dead");       
     }
+
 }
