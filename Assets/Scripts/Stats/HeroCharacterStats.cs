@@ -16,5 +16,12 @@ public class HeroCharacterStats : CharacterStats
             currentHealth += 40;
             Destroy(other.gameObject);
         }
+
+        if (other.gameObject.tag == "Bullet")
+        {
+            currentHealth -= 5;
+            Destroy(other.gameObject);
+
+        }
     }
 }
