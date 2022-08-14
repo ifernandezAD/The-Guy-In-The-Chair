@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class HeroCharacterStats : CharacterStats
 {
+
     public override void Die()
     {
         this.gameObject.SetActive(false);

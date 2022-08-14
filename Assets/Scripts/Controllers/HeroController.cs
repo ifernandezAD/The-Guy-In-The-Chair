@@ -24,6 +24,7 @@ public class HeroController : MonoBehaviour
     public int lookRadius;
     CharacterCombat combat;
 
+    public static event Action weakPoint;
 
     void Start()
     {
@@ -34,7 +35,7 @@ public class HeroController : MonoBehaviour
         keywordActions.Add("tiratira", Tiratira);
         keywordActions.Add("atras", Atras);
         keywordActions.Add("para", Para);
-        keywordActions.Add("dale", Dale);
+        keywordActions.Add("debil", Debil);
         keywordActions.Add("derecha", Derecha);
         keywordActions.Add("izquierda", Izquierda);
 
@@ -124,10 +125,11 @@ public class HeroController : MonoBehaviour
         isBack = false;
     }
 
-    private void Dale()
+    private void Debil()
     {
-        print("Dalee");
-        //El heroe aumenta su cadencia y poder de ataque
+        print("Le has jodido donde mas duele");
+        weakPoint?.Invoke();
+        
     }
 
     private void Derecha()

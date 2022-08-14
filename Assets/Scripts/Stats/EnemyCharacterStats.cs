@@ -5,6 +5,7 @@ using UnityEngine;
 public class EnemyCharacterStats : CharacterStats
 {
     public HeroController heroController;
+ 
 
     private void Start()
     {
@@ -16,4 +17,6 @@ public class EnemyCharacterStats : CharacterStats
         heroController.isWalking = true;
         Destroy(gameObject);    
     }
+
+    
 }
