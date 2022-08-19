@@ -1,9 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class HeroCharacterStats : CharacterStats
 {
+    public static event Action pederastianStar;
 
     public override void Die()
     {
@@ -14,6 +16,7 @@ public class HeroCharacterStats : CharacterStats
     {
         if (other.gameObject.tag == "Pederastian")
         {
+            pederastianStar?.Invoke();
             currentHealth += 40;
             Destroy(other.gameObject);
         }
