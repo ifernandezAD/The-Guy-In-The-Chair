@@ -6,17 +6,12 @@ using System;
 public class BossCharacterStats : EnemyCharacterStats
 {
     private Timer timer;
+    public static event Action timeStar;
 
     private void OnEnable()
     {
         timer = GameObject.FindObjectOfType<Timer>();
-        HeroController.weakPoint += DestroyBoss;
-    }
-
-    public void DestroyBoss()
-    {
-       
-        Destroy(this.gameObject);
+        HeroController.weakPoint += Die;
     }
 
     public override void Die()
@@ -27,6 +22,10 @@ public class BossCharacterStats : EnemyCharacterStats
 
     public void CheckTime()
     {
-
+        if (timer.time > 60)
+        {
+            Debug.Log("Tiempo de puta madre, 1 estrella");
+            timeStar.Invoke();
+        }
     }
 }

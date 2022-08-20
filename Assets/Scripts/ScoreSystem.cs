@@ -9,12 +9,7 @@ public class ScoreSystem : MonoBehaviour
     private void OnEnable()
     {
         HeroCharacterStats.pederastianStar += AddStar;
-    }
-
-
-    void Update()
-    {
-        
+        BossCharacterStats.timeStar += AddStar;
     }
 
     void AddStar()

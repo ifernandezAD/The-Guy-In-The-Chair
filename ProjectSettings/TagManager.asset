@@ -9,6 +9,7 @@ TagManager:
   - Canon
   - Hero
   - Bullet
+  - GameManager
   layers:
   - Default
   - TransparentFX

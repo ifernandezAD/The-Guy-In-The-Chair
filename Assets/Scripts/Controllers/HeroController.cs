@@ -35,7 +35,7 @@ public class HeroController : MonoBehaviour
         keywordActions.Add("tiratira", Tiratira);
         keywordActions.Add("atras", Atras);
         keywordActions.Add("para", Para);
-        keywordActions.Add("debil", Debil);
+        keywordActions.Add("cola", Cola);
         keywordActions.Add("derecha", Derecha);
         keywordActions.Add("izquierda", Izquierda);
 
@@ -93,6 +93,46 @@ public class HeroController : MonoBehaviour
         myRigid.velocity = inputVector;
     }
 
+    void CheckForEnemies()
+    {
+        Collider[] colliders = Physics.OverlapSphere(transform.position, lookRadius);
+        foreach (Collider c in colliders)
+        {
+            if (c.tag == "Enemy")
+            {
+                isWalking = false;
+                isRunning = false;
+                isBack = false;
+                transform.LookAt(c.transform.position);
+
+                CharacterStats targetStats = c.GetComponent<CharacterStats>();
+                if (targetStats != null)
+                {
+                    combat.Attack(targetStats);
+                }
+            }
+        }
+    }
+
+    IEnumerator RotateMe(Vector3 byAngles, float inTime)
+    {
+        var fromAngle = transform.rotation;
+        var toAngle = Quaternion.Euler(transform.eulerAngles + byAngles);
+        for (var t = 0f; t < 1; t += Time.deltaTime / inTime)
+        {
+            transform.rotation = Quaternion.Lerp(fromAngle, toAngle, t);
+            yield return null;
+        }
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.blue;
+        Gizmos.DrawWireSphere(transform.position, lookRadius);
+    }
+
+
+
     private void OnKeywordsRecognized(PhraseRecognizedEventArgs args)
     {
         Debug.Log("Keyword: " + args.text);
@@ -125,13 +165,6 @@ public class HeroController : MonoBehaviour
         isBack = false;
     }
 
-    private void Debil()
-    {
-        print("Le has jodido donde mas duele");
-        weakPoint?.Invoke();
-        
-    }
-
     private void Derecha()
     {
         print("Turn Right");
@@ -144,44 +177,17 @@ public class HeroController : MonoBehaviour
         StartCoroutine(RotateMe(Vector3.up * -90, 0.5f));
     }
 
-
-    IEnumerator RotateMe(Vector3 byAngles, float inTime)
+    private void Cola()
     {
-        var fromAngle = transform.rotation;
-        var toAngle = Quaternion.Euler(transform.eulerAngles + byAngles);
-        for (var t = 0f; t < 1; t += Time.deltaTime / inTime)
-        {
-            transform.rotation = Quaternion.Lerp(fromAngle, toAngle, t);
-            yield return null;
-        }
+        //Comando para atacar el punto débil del Boss
+        print("Le has jodido donde mas duele");
+        weakPoint?.Invoke();
     }
 
-    
-    void CheckForEnemies()
+    private void Hola()
     {
-        Collider[] colliders = Physics.OverlapSphere(transform.position, lookRadius);
-        foreach (Collider c in colliders)
-        {
-            if (c.tag == "Enemy")
-            {
-                isWalking = false;
-                isRunning = false;
-                isBack = false;
-                transform.LookAt(c.transform.position);
 
-                CharacterStats targetStats = c.GetComponent<CharacterStats>();
-                if (targetStats != null)
-                {
-                    combat.Attack(targetStats);
-                }
-            }          
-        }
     }
 
-    private void OnDrawGizmos()
-    {
-        Gizmos.color = Color.blue;
-        Gizmos.DrawWireSphere(transform.position, lookRadius);
-    }
 
 }
