@@ -30,6 +30,10 @@ public class HeroController : MonoBehaviour
     public static event Action initialSpeech;
     public bool isProfessional = false;
 
+    //Are you polite?
+    public static event Action heroInsulted;
+    public bool isOffensive = false;
+
     void Start()
     {
         myRigid = transform.GetComponent<Rigidbody>();
@@ -44,6 +48,9 @@ public class HeroController : MonoBehaviour
         keywordActions.Add("izquierda", Izquierda);
         keywordActions.Add("hola", Hola);
         keywordActions.Add("gracias",Gracias);
+        keywordActions.Add("gilipollas", Gilipollas);
+        keywordActions.Add("imbécil", Imbecil);
+        keywordActions.Add("cabrón", Cabron);
 
         keywordRecognizer = new KeywordRecognizer(keywordActions.Keys.ToArray());
         keywordRecognizer.OnPhraseRecognized += OnKeywordsRecognized;
@@ -137,8 +144,6 @@ public class HeroController : MonoBehaviour
         Gizmos.DrawWireSphere(transform.position, lookRadius);
     }
 
-
-
     private void OnKeywordsRecognized(PhraseRecognizedEventArgs args)
     {
         Debug.Log("Keyword: " + args.text);
@@ -205,6 +210,36 @@ public class HeroController : MonoBehaviour
         {
             initialSpeech?.Invoke();
             isProfessional = true;
+        }
+    }
+
+    private void Gilipollas()
+    {
+        Debug.Log("Tu padre");
+        if (isOffensive == false)
+        {
+            heroInsulted.Invoke();
+            isOffensive = true;
+        }
+    }
+
+    private void Imbecil()
+    {
+        Debug.Log("Tu padre");
+        if (isOffensive == false)
+        {
+            heroInsulted.Invoke();
+            isOffensive = true;
+        }
+    }
+
+    private void Cabron()
+    {
+        Debug.Log("Tu padre");
+        if (isOffensive == false)
+        {
+            heroInsulted.Invoke();
+            isOffensive = true;
         }
     }
 }
