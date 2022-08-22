@@ -10,11 +10,14 @@ public class ScoreSystem : MonoBehaviour
     {
         HeroCharacterStats.pederastianStar += AddStar;
         BossCharacterStats.timeStar += AddStar;
-    }
+        HeroController.initialSpeech += AddStar;
 
-    void AddStar()
-    {
-        ++stars;
-        print(stars);
+        void AddStar()
+        {
+            ++stars;
+            print(stars);
+        }
+
     }
 }
+

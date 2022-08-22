@@ -26,6 +26,10 @@ public class HeroController : MonoBehaviour
 
     public static event Action weakPoint;
 
+    //Initial Speech
+    public static event Action initialSpeech;
+    public bool isProfessional = false;
+
     void Start()
     {
         myRigid = transform.GetComponent<Rigidbody>();
@@ -38,6 +42,8 @@ public class HeroController : MonoBehaviour
         keywordActions.Add("cola", Cola);
         keywordActions.Add("derecha", Derecha);
         keywordActions.Add("izquierda", Izquierda);
+        keywordActions.Add("hola", Hola);
+        keywordActions.Add("gracias",Gracias);
 
         keywordRecognizer = new KeywordRecognizer(keywordActions.Keys.ToArray());
         keywordRecognizer.OnPhraseRecognized += OnKeywordsRecognized;
@@ -186,8 +192,19 @@ public class HeroController : MonoBehaviour
 
     private void Hola()
     {
-
+        if (isProfessional == false)
+        {
+            initialSpeech?.Invoke();
+            isProfessional = true;
+        }        
     }
 
-
+    private void Gracias()
+    {
+        if (isProfessional == false)
+        {
+            initialSpeech?.Invoke();
+            isProfessional = true;
+        }
+    }
 }
