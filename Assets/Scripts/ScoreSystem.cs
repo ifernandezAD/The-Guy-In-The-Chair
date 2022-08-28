@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class ScoreSystem : MonoBehaviour
 {
-    public int stars = 0;
+    public int stars = 1;
 
     private void OnEnable()
     {
@@ -11,7 +11,6 @@ public class ScoreSystem : MonoBehaviour
         HeroController.initialSpeech += AddStar;
         HeroController.heroInsulted += SubtractStar;
     }
-
 
     void AddStar()
     {
@@ -25,5 +24,9 @@ public class ScoreSystem : MonoBehaviour
         print(stars);
     }
 
+    void ShowScore()
+    {
+        
+    }
 }
 
