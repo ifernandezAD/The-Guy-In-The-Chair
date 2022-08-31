@@ -10,6 +10,7 @@ TagManager:
   - Hero
   - Bullet
   - GameManager
+  - ScoreCanvas
   layers:
   - Default
   - TransparentFX

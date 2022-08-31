@@ -7,6 +7,7 @@ public class BossCharacterStats : EnemyCharacterStats
 {
     private Timer timer;
     public static event Action timeStar;
+    public static event Action showScore;
 
     private void OnEnable()
     {
@@ -17,6 +18,7 @@ public class BossCharacterStats : EnemyCharacterStats
     public override void Die()
     {
         CheckTime();
+        showScore?.Invoke();
         Destroy(gameObject);
     }
 

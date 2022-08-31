@@ -4,9 +4,12 @@ using UnityEngine;
 
 public class RotationScript : MonoBehaviour
 {
+    public float rotateSpeedX;
+    public float rotateSpeedY;
+    public float rotateSpeedZ;
 
     void Update()
     {
-        transform.Rotate(new Vector3 (0, 1, 0));
+        transform.Rotate(new Vector3 (rotateSpeedX, rotateSpeedY, rotateSpeedZ));
     }
 }
