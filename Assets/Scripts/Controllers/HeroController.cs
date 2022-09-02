@@ -15,6 +15,7 @@ public class HeroController : MonoBehaviour
     public bool isWalking = false;
     public bool isRunning;
     public bool isBack;
+    
 
     //Voice Recognition Variables
     private Dictionary<string, Action> keywordActions = new Dictionary<string, Action>();
@@ -23,6 +24,7 @@ public class HeroController : MonoBehaviour
     //EnemyDetection and Attack Variables
     public int lookRadius;
     CharacterCombat combat;
+    public bool bossFight = false;
 
     public static event Action weakPoint;
 
@@ -57,6 +59,10 @@ public class HeroController : MonoBehaviour
         keywordRecognizer.Start();
     }
 
+    private void OnEnable()
+    {
+        BossBattleTrigger.bossBattleBegins += BossBattleActive;
+    }
 
     void Update()
     {
@@ -190,9 +196,12 @@ public class HeroController : MonoBehaviour
 
     private void Cola()
     {
-        //Comando para atacar el punto débil del Boss
-        print("Le has jodido donde mas duele");
-        weakPoint?.Invoke();
+        if (bossFight)
+        {
+            //Comando para atacar el punto débil del Boss
+            print("Le has jodido donde mas duele");
+            weakPoint?.Invoke();
+        }
     }
 
     private void Hola()
@@ -241,5 +250,10 @@ public class HeroController : MonoBehaviour
             heroInsulted.Invoke();
             isOffensive = true;
         }
+    }
+
+    private void BossBattleActive()
+    {
+        bossFight = true;
     }
 }
