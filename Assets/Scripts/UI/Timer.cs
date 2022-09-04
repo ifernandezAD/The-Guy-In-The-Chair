@@ -8,18 +8,29 @@ public class Timer : MonoBehaviour
     public Text timerText;
     public float time = 300f;
 
+    private bool levelComplete = false;
+
+    private void OnEnable()
+    {
+        BossCharacterStats.showScore += LevelCompleted;
+    }
+
     private void Update()
     {
-       if (time > 0)
+       if (levelComplete == false)
         {
-            time -= Time.deltaTime;
-        }
-       else
-        {
-            time = 0;
-        }
+            if (time > 0)
+            {
+                time -= Time.deltaTime;
+            }
+            else
+            {
+                time = 0;
+            }
 
-        DisplayTime(time);
+            DisplayTime(time);
+        }
+      
     }
 
     void DisplayTime(float timeToDisplay)
@@ -37,6 +48,11 @@ public class Timer : MonoBehaviour
         float seconds = Mathf.FloorToInt(timeToDisplay % 60);
 
         timerText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
+    }
+
+    void LevelCompleted()
+    {
+        levelComplete = true;
     }
 
 }
