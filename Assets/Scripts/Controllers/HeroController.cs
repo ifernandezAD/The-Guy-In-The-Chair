@@ -45,9 +45,11 @@ public class HeroController : MonoBehaviour
         keywordActions.Add("tiratira", Tiratira);
         keywordActions.Add("atras", Atras);
         keywordActions.Add("para", Para);
-        keywordActions.Add("cola", Cola);
+        keywordActions.Add("cabeza", Cabeza);
         keywordActions.Add("derecha", Derecha);
+        keywordActions.Add("poquitoderecha", Poquitoderecha);
         keywordActions.Add("izquierda", Izquierda);
+        keywordActions.Add("poquitoizquierda", Poquitoizquierda);
         keywordActions.Add("hola", Hola);
         keywordActions.Add("gracias",Gracias);
         keywordActions.Add("gilipollas", Gilipollas);
@@ -61,7 +63,7 @@ public class HeroController : MonoBehaviour
 
     private void OnEnable()
     {
-        BossBattleTrigger.bossBattleBegins += BossBattleActive;
+        BossBattleTrigger.bossBattleBegins += BossBattleActive;      
     }
 
     void Update()
@@ -109,7 +111,7 @@ public class HeroController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        myRigid.velocity = inputVector;
+        myRigid.velocity = inputVector;       
     }
 
     void CheckForEnemies()
@@ -121,9 +123,8 @@ public class HeroController : MonoBehaviour
             {
                 isWalking = false;
                 isRunning = false;
-                isBack = false;
+                isBack = false;               
                 transform.LookAt(c.transform.position);
-
                 CharacterStats targetStats = c.GetComponent<CharacterStats>();
                 if (targetStats != null)
                 {
@@ -188,13 +189,25 @@ public class HeroController : MonoBehaviour
         StartCoroutine(RotateMe(Vector3.up * 90, 0.5f));
     }
 
+    private void Poquitoderecha()
+    {
+        print("Turn Right a little");
+        StartCoroutine(RotateMe(Vector3.up * 30, 0.5f));
+    }
+
     private void Izquierda()
     {
         print("Turn Left");
         StartCoroutine(RotateMe(Vector3.up * -90, 0.5f));
     }
 
-    private void Cola()
+    private void Poquitoizquierda()
+    {
+        print("Turn Left a little");
+        StartCoroutine(RotateMe(Vector3.up * -30, 0.5f));
+    }
+
+    private void Cabeza()
     {
         if (bossFight)
         {

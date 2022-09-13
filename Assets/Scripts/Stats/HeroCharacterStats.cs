@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using UnityEngine.SceneManagement;
 
 public class HeroCharacterStats : CharacterStats
 {
@@ -10,6 +11,8 @@ public class HeroCharacterStats : CharacterStats
     public override void Die()
     {
         this.gameObject.SetActive(false);
+        SceneManager.LoadScene("GameOver");
+
     }
 
     private void OnCollisionEnter(Collision other)
