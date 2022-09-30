@@ -1658,6 +1658,7 @@ GameObject:
   - component: {fileID: 303786206}
   - component: {fileID: 303786208}
   - component: {fileID: 303786207}
+  - component: {fileID: 303786209}
   m_Layer: 0
   m_Name: Hero
   m_TagString: Hero
@@ -1813,6 +1814,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackSpeed: 1
   attackCooldown: 0
+--- !u!114 &303786209
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 303786200}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b249b42b5ee71e2488688e1fa5e5905c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 3
+  isWalking: 0
+  isRunning: 0
+  isBack: 0
+  lookRadius: 4
+  bossFight: 0
+  isProfessional: 0
+  isOffensive: 0
 --- !u!4 &330120979 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2484785403708357332, guid: a3b7688fe682dc24a940e661ce619047, type: 3}
