@@ -22,7 +22,7 @@ public class CharacterCombat : MonoBehaviour
         attackCooldown -= Time.deltaTime;
     }
 
-    public void Attack(CharacterStats targetStats)
+    public virtual void Attack(CharacterStats targetStats)
     {
         if (attackCooldown <= 0f)
         {

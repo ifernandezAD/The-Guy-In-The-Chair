@@ -26,7 +26,7 @@ public class BossCharacterStats : EnemyCharacterStats
     {
         if (timer.time > 60)
         {
-            Debug.Log("Tiempo de puta madre, 1 estrella");
+            Debug.Log("Buen tiempo, 1 estrella");
             timeStar.Invoke();
         }
     }
