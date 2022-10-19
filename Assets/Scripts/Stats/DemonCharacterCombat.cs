@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(CharacterStats))]
+
 public class DemonCharacterCombat : CharacterCombat
 {
     CharacterStats myStats;
@@ -16,9 +16,26 @@ public class DemonCharacterCombat : CharacterCombat
     {
         if (attackCooldown <= 0f)
         {
-            myAnim.SetTrigger("attack1");
+            RandomAttack();
             targetStats.TakeDamage(myStats.damage.GetValue());
             attackCooldown = 1f / attackSpeed;
         }
     }
+
+    void RandomAttack()
+    {
+        int attack = Random.Range(0, 3);
+
+        if (attack == 0)
+        {
+            myAnim.SetTrigger("attack1");
+        }
+        if (attack == 1)
+        {
+            myAnim.SetTrigger("attack3");
+        }
+        if (attack == 2)
+        {
+            myAnim.SetTrigger("attack4");
+        }    }
 }

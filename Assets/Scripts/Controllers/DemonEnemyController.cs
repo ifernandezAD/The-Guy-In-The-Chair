@@ -22,7 +22,6 @@ public class DemonEnemyController : MonoBehaviour
 
     void Update()
     {
-
         float distance = Vector3.Distance(target.position, transform.position);
 
         if (distance <= lookRadius)
@@ -36,7 +35,6 @@ public class DemonEnemyController : MonoBehaviour
                 {
                     combat.Attack(targetStats);
                 }
-
                 FaceTarget();
             }
         }

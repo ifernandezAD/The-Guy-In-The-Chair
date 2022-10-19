@@ -212,7 +212,7 @@ public class HeroController : MonoBehaviour
         if (bossFight)
         {
             //Comando para atacar el punto débil del Boss
-            print("Le has jodido donde mas duele");
+            print("Le has dado donde mas duele");
             weakPoint?.Invoke();
         }
     }

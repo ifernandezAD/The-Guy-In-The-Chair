@@ -91,7 +91,7 @@ GameObject:
   - component: {fileID: 5840622844226644180}
   - component: {fileID: 5840622844226644181}
   - component: {fileID: 5840622844226644182}
-  - component: {fileID: 8967051957676192690}
+  - component: {fileID: 753951282971550328}
   - component: {fileID: 5840622844226644184}
   m_Layer: 0
   m_Name: Gargoyle_Boss
@@ -231,7 +231,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lookRadius: 10
---- !u!114 &8967051957676192690
+--- !u!114 &753951282971550328
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -240,7 +240,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 5840622844226644185}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c33a90a29d0c04947bc223e58ae7b17a, type: 3}
+  m_Script: {fileID: 11500000, guid: 22a23c06a63cff24789c307336f231ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 300
@@ -251,6 +251,8 @@ MonoBehaviour:
     baseValue: 0
   healthBarSprite: {fileID: 5840622845385409143}
   heroController: {fileID: 0}
+  myAnim: {fileID: 3943279198256847637}
+  deathTime: 3
 --- !u!114 &5840622844226644184
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -581,5 +583,10 @@ PrefabInstance:
 --- !u!4 &6942715941326455151 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4217349180051480650, guid: 13202be764e734d249e032578486b6b3, type: 3}
+  m_PrefabInstance: {fileID: 6547798319688868133}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &3943279198256847637 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 7811252110472591920, guid: 13202be764e734d249e032578486b6b3, type: 3}
   m_PrefabInstance: {fileID: 6547798319688868133}
   m_PrefabAsset: {fileID: 0}

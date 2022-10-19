@@ -6,17 +6,25 @@ using System;
 public class EnemyCharacterStats : CharacterStats
 {
     public HeroController heroController;
-    
+    public Animator myAnim;
+    [SerializeField] int deathTime=3;
+
     private void Start()
     {
         heroController = GameObject.Find("Hero").GetComponent<HeroController>();      
     }
 
     public override void Die()
-    {     
-        heroController.isWalking = true;
-        Destroy(gameObject);    
+    {
+        StartCoroutine("AnimatedDeath");
     }
 
-    
+    IEnumerator AnimatedDeath()
+    {
+        heroController.isWalking = true;
+        myAnim.SetTrigger("death");
+        yield return new WaitForSeconds(deathTime);
+        Destroy(gameObject);
+    }
+
 }
