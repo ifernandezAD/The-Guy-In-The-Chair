@@ -8,7 +8,7 @@ public class BossCharacterStats : EnemyCharacterStats
     private Timer timer;
     public static event Action timeStar;
     public static event Action showScore;
-
+   
     private void OnEnable()
     {
         timer = GameObject.FindObjectOfType<Timer>();
