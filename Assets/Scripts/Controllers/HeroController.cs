@@ -15,6 +15,8 @@ public class HeroController : MonoBehaviour
     public bool isWalking = false;
     public bool isRunning;
     public bool isBack;
+
+    private Animator myAnim;
     
 
     //Voice Recognition Variables
@@ -40,6 +42,7 @@ public class HeroController : MonoBehaviour
     {
         myRigid = transform.GetComponent<Rigidbody>();
         combat = GetComponent<CharacterCombat>();
+        myAnim = GetComponentInChildren<Animator>();
 
         keywordActions.Add("tira", Tira);
         keywordActions.Add("tiratira", Tiratira);
@@ -73,6 +76,8 @@ public class HeroController : MonoBehaviour
         if (isWalking)
         {
             inputVector = this.transform.rotation * Vector3.forward * speed;
+            myAnim.SetBool("isWalkingAnim", true);
+
 
             if (isRunning)
             {
@@ -86,6 +91,8 @@ public class HeroController : MonoBehaviour
         else if (isRunning)
         {
             inputVector = this.transform.rotation * Vector3.forward * speed * 2;
+            myAnim.SetBool("isRunningAnim", true);
+
             if (isBack)
             {
                 inputVector = this.transform.rotation * -Vector3.forward * speed;
@@ -94,6 +101,8 @@ public class HeroController : MonoBehaviour
         else if (isBack)
         {
             inputVector = this.transform.rotation * -Vector3.forward * speed;
+            myAnim.SetBool("isBackAnim", true);
+
             if (isWalking)
             {
                 inputVector = this.transform.rotation * Vector3.forward * speed;
@@ -106,6 +115,9 @@ public class HeroController : MonoBehaviour
         else
         {
             inputVector = this.transform.rotation * Vector3.forward * 0;
+            myAnim.SetBool("isWalkingAnim", false);
+            myAnim.SetBool("isBackAnim", false);
+            myAnim.SetBool("isRunningAnim", false);
         }
     }
 
